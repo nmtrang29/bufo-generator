@@ -1,0 +1,661 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background: #E5F5CD;
+    min-height: 100vh;
+    padding: 0;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    background: #B5D49B;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Header */
+.header {
+    grid-column: 1 / -1;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    color: #496738;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #496738;
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* Left Panel - Controls */
+.controls-panel {
+    background: #99BD7A;
+    border-radius: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
+}
+
+/* Right Panel - Preview */
+.preview-panel {
+    background: #99BD7A;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.preview-label {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #81c784;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+.cat-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #99BD7A
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    position: relative;
+}
+
+.cat {
+    position: relative;
+    display: inline-block;
+    transform: scale(1.2);
+    animation: floatBounce 3s ease-in-out infinite;
+}
+
+@keyframes floatBounce {
+    0%, 100% { transform: scale(1.2) translateY(0px); }
+    50% { transform: scale(1.2) translateY(-10px); }
+}
+
+.cat-body {
+    width: 200px;
+    height: 150px;
+    background-image: url('./assets/base.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Eye */
+.eyes {
+    position: absolute;
+    top: -30px;
+    left: 125px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
+
+.eye {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: blink 4s infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% { opacity: 1; }
+    95% { opacity: 0.1; }
+}
+
+/* Eyebrow */
+.eyebrows {
+    position: absolute;
+    top:-14px;
+    left: 124px;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.eyebrow {
+    width: 220px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eyebrow-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* Mouth */
+.mouth {
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% + 30px);
+    transform: translateX(-50%);
+}
+
+.mouth-content {
+    width: 110px;
+    height:96px
+}
+
+/* Cheek */
+.cheeks {
+    position: absolute;
+    top: 22px;
+    left: 65%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.cheek {
+    width: 125px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cheek-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+
+
+
+/* Hat */
+.hat {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.hat-content {
+    font-size: 40px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+/* Left Hand */
+.left-hand {
+    position: absolute;
+    left: 0px;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.lefthand-content {
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    animation: wave 5s ease-in-out infinite;
+}
+
+/* Right Hand */
+.right-hand {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.righthand-content {
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    animation: wave 5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-10deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
+}
+
+/* Excited animation for when character changes */
+@keyframes excited {
+    0% { transform: scale(1.2) translateY(0px); }
+    25% { transform: scale(1.25) translateY(-5px) rotate(2deg); }
+    50% { transform: scale(1.3) translateY(-10px) rotate(-2deg); }
+    75% { transform: scale(1.25) translateY(-5px) rotate(1deg); }
+    100% { transform: scale(1.2) translateY(0px); }
+}
+
+/* Sparkle effect for active options */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+.option-item.active::after {
+    content: '✨';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+    animation: sparkle 1.5s infinite;
+    pointer-events: none;
+}
+
+
+/* Floating particles animation */
+@keyframes floatUp {
+    0% { 
+        opacity: 1; 
+        transform: translateY(0px) scale(0.5); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateY(-30px) scale(1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-60px) scale(0.5); 
+    }
+}
+
+/* Button press animation */
+.option-item:active {
+    transform: scale(0.9);
+    animation: buttonPress 0.2s ease;
+}
+
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+/* Celebration particles animation */
+@keyframes celebrationFloat {
+    0% { 
+        opacity: 1; 
+        transform: translateY(0px) rotate(0deg) scale(0.5); 
+    }
+    25% { 
+        opacity: 1; 
+        transform: translateY(-20px) rotate(90deg) scale(1); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateY(-40px) rotate(180deg) scale(1.2); 
+    }
+    75% { 
+        opacity: 0.8; 
+        transform: translateY(-60px) rotate(270deg) scale(1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-80px) rotate(360deg) scale(0.5); 
+    }
+}
+
+
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.control-group {
+    background:#B5D49B;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.control-group h3 {
+    color: #496738;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+}
+
+/* Options Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    justify-content: center;
+}
+
+.option-item {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(74,103,56);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-item:hover {
+    background: rgba(74,103,56, 0.6);
+    transform: translateY(-2px);
+}
+
+.option-item.active {
+    background: #496738;
+    color: #2d4a2d;
+    transform: scale(1.05);
+}
+
+.option-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.option-item:active {
+    transform: scale(0.95);
+}
+
+/* Shared styling for all "no" options */
+.option-item.no-hat,
+.option-item.no-mouth,
+.option-item.no-cheek,
+.option-item.no-eyebrow,
+.option-item.no-lefthand,
+.option-item.no-righthand {
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%), 
+                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+    position: relative;
+}
+
+.option-item.no-hat::after,
+.option-item.no-mouth::after,
+.option-item.no-cheek::after,
+.option-item.no-eyebrow::after,
+.option-item.no-lefthand::after,
+.option-item.no-righthand::after {
+    font-size: 8px;
+    color: #ccc;
+    font-weight: 700;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.option-item.no-hat::after {
+    content: 'No Hat';
+}
+
+
+
+/* Special styling for eye option items */
+.option-item.eye-option {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+/* Special styling for mouth option items */
+.option-item.mouth-option {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+.option-item.no-mouth::after {
+    content: 'No Mouth';
+}
+
+
+
+/* Special styling for cheek option items */
+.option-item.cheek-option {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+.option-item.no-cheek::after {
+    content: 'No Cheeks';
+}
+
+/* Special styling for eyebrow option items */
+.option-item.eyebrow-option {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+/* Special styling for left hand option items */
+.option-item.lefthand-option {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+/* Special styling for right hand option items */
+.option-item.righthand-option {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+.option-item.no-eyebrow::after {
+    content: 'No Eyebrow';
+}
+
+.option-item.no-lefthand::after {
+    content: 'No Left Hand';
+}
+
+.option-item.no-righthand::after {
+    content: 'No Right Hand';
+}
+
+/* Footer */
+.footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #B5D49B;
+}
+
+.action-btn {
+    background: #496738;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 140px;
+    font-family: 'Comic Neue', cursive;
+}
+
+.random-btn {
+    background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
+}
+
+.random-btn:hover {
+    background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(129, 199, 132, 0.4);
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #26c6da 0%, #00acc1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(77, 208, 225, 0.4);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .game-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+    
+    .controls-panel {
+        order: 3;
+    }
+    
+    .preview-panel {
+        order: 2;
+        min-height: 250px;
+    }
+    
+    .footer {
+        order: 4;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    .controls-panel, .preview-panel {
+        padding: 15px;
+    }
+    
+    .options-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    
+    .option-item {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .cat {
+        transform: scale(1);
+    }
+    
+    .action-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        min-width: 120px;
+    }
+    
+    .footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .option-item {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .control-group h3 {
+        font-size: 1em;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+} 

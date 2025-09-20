@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusheen Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Create a bufo</h1>
+        </div>
+        
+        <!-- Left Panel - Controls -->
+        <div class="controls-panel">
+            <div class="controls">
+                <!-- Eye Style -->
+                <div class="control-group">
+                    <h3>Eye</h3>
+                    <div class="options-grid" id="eye-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Mouth Style -->
+                <div class="control-group">
+                    <h3>Mouth</h3>
+                    <div class="options-grid" id="mouth-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Hat Style -->
+                <div class="control-group">
+                    <h3>Hat</h3>
+                    <div class="options-grid" id="hat-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+
+                
+                <!-- Cheek Style -->
+                <div class="control-group">
+                    <h3>Cheek</h3>
+                    <div class="options-grid" id="cheek-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Eyebrow Style -->
+                <div class="control-group">
+                    <h3>Eyebrow</h3>
+                    <div class="options-grid" id="eyebrow-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Left Hand Style -->
+                <div class="control-group">
+                    <h3>Left Hand</h3>
+                    <div class="options-grid" id="lefthand-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Right Hand Style -->
+                <div class="control-group">
+                    <h3>Right Hand</h3>
+                    <div class="options-grid" id="righthand-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Panel - Preview -->
+        <div class="preview-panel">
+            <div class="preview-label">3D Preview</div>
+            <div class="cat-container">
+                <div class="cat" id="pusheen">
+                    <!-- Cat body -->
+                    <div class="cat-body">
+                        <!-- Eye -->
+                        <div class="eyes" id="eyes">
+                            <div class="eye single-eye">
+                                <div class="eye-content" id="eye-content">•</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Eyebrow -->
+                        <div class="eyebrows" id="eyebrows">
+                            <div class="eyebrow single-eyebrow">
+                                <div class="eyebrow-content" id="eyebrow-content"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mouth -->
+                        <div class="mouth" id="mouth">
+                            <div class="mouth-content" id="mouth-content">🍩</div>
+                        </div>
+                        
+                        <!-- Cheek -->
+                        <div class="cheeks" id="cheeks">
+                            <div class="cheek single-cheek">
+                                <div class="cheek-content" id="cheek-content"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Left Hand -->
+                        <div class="left-hand" id="left-hand">
+                            <div class="lefthand-content" id="lefthand-content"></div>
+                        </div>
+                        
+                        <!-- Right Hand -->
+                        <div class="right-hand" id="right-hand">
+                            <div class="righthand-content" id="righthand-content"></div>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Hat -->
+                    <div class="hat" id="hat">
+                        <div class="hat-content" id="hat-content">🎉</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <button onclick="randomOutfit()" class="action-btn random-btn">Random</button>
+            <button onclick="resetCat()" class="action-btn reset-btn">Reset</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
